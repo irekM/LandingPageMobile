@@ -1,0 +1,191 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+}
+
+html {
+    font-size: 10px;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    /*okreslona wielkosc bo "fixed" bazowo ma 0px*/
+    background-color: #F9F5EA;
+    position: fixed;
+    /*element przyczepiony na stale do ekranu*/
+    top: 0;
+    /*okreslanie miejsca gdzie zostaje przyczepiony = top left czyli na gorze do lewej*/
+    left: 0;
+    overflow-x: hidden;
+    font-family: 'Oswald', sans-serif;
+    z-index: 1;
+    /* z idex wyswietla chierarchie wyswietlania elementu jakby warstwe, nie mozna zapominac o "position" musi byc inny niz bazowy*/
+}
+
+main {
+    height: 100vh;
+    background-color: black;
+    margin-top: 100vh;
+    /* druga zakladke przesunalem nizej o taka sama wielkosc jak pierwsza*/
+    position: relative;
+    z-index: 2;
+}
+
+header img {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 80%;
+
+}
+
+header nav {
+    position: absolute;
+    right: 7%;
+    top: 4%;
+    font-size: 3rem;
+}
+
+header hgroup {
+    position: absolute;
+    top: 15%;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3.6rem;
+}
+
+header h3 {
+    font-size: 2.6rem;
+    font-weight: 400;
+}
+
+#strzalka {
+    width: 60px;
+    height: 60px;
+    border: 3px solid black;
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: 0 -10px 0 black, 0 -20px 0 black;
+    /*dublowanie mozliwe wiele elementow oraz robi cien wokol tekstu*/
+    overflow: hidden;
+    /* jesli elementy wyjda poza kolko to nie beda widoczne */
+    transition: 2s;
+}
+
+#strzalka:hover {
+    /*pseudo klasa hover okresla jak ma zachowac sie element po najechaniu kursorem */
+    text-shadow: 0 -10px 0 white, 0 -20px 0 white;
+    color: white;
+    border-color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.fa-angle-down {
+    animation: strzalka 2s infinite linear;
+}
+
+@media (orientation:portrait) {
+    h3 span::after {
+        content: '\A';
+        white-space: pre;
+    }
+}
+
+@media (orientation:landscape) {
+    right: 0px;
+    height: 60%;
+}
+
+@media (min-width:530px) {
+    header img{
+        height: 75%;
+    }
+    header h1 {
+        font-size: 5rem;
+    }
+    header h3 {
+        font-size: 2.2rem;
+    }
+    header group{
+        top: 10%;
+    }
+}
+
+
+@media (max-width:768px) {}
+@media (max-width:768px) and (orientation:portrait){
+        header img{
+        height: 75%;
+        right: -30%;
+    }
+    header h1 {
+        font-size: 8rem;
+    }
+    header h3 {
+        font-size: 4.4rem;
+    }
+    header group{
+        top: 10%;
+    }
+}
+
+@media (max-width:1024px) {
+            header img{
+        height: 75%;
+        right: -10%;
+    }
+    header h1 {
+        font-size: 8rem;
+    }
+    header h3 {
+        font-size: 3.8rem;
+    }
+    header group{
+        top: 10%;
+    }
+    #strzalka{
+        widows: 96px;
+        height: 96px;
+        font-size: 7rem;
+    }
+    
+}
+@media (max-width:1024px) and (orientation:portrait){}
+@media (max-width:1280px) {}
+@media (max-width:1280px) and (orientation:portrait){}
+@media (max-width:1600px) {}
+@media (max-width:1600px) and (orientation:portrait){}
+    
+@media (max-width:320px) {
+    header h3 {
+        font-size: 2.4rem;
+    }
+}
+
+
+    
+    
+    @keyframes strzalka {
+    5% {
+        transform: translateY(-80px)
+    }
+    50% {
+        transform: translateY(0px)
+    }
+    100% {
+        transform: translateY(80px)
+    }
+
+}
